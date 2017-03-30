@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    // Load the Visualization API and the piechart package.
+    google.charts.load('current', {'packages':['corechart', 'table', 'geochart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var jsonData = $.ajax({
+          url: "http://138.197.204.34:9090/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc",
+          dataType: "json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+
+      // Instantiate and draw our chart, passing in some options.
+    //  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    //  chart.draw(data, {width: '100%', height: 240, sliceVisibilityThreshold: 0.015});
+
+   //   var table = new google.visualization.Table(document.getElementById('table_div'));
+   //   table.draw(data, {showRowNumber: true, width: '100%'});
+ 
+      var options = {
+          region: 'US',
+          dataMode: 'regions',
+          resolution: 'provinces',
+
+          colorAxis: {minValue:0, maxValue:90000000, colors: ['#FFDCDC', '#FF0000']}
+      };
+      
+      var geomap = new google.visualization.GeoChart(document.getElementById('map_canvas_div'));
+      geomap.draw(data, options);
+
+ 
+    }
+
+    </script>
+  </head>
+
+  <body>
+    <center><h2>Google GeoChart of BWs by State</h2>
+API: <a href="http://138.197.204.34:9090/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc">http://138.197.204.34:9090/cases?columns=state,sum(backwages)&amp;return_format=googledatatable&amp;where=state<>''&amp;order=backwages desc</a>
+    </center>
+    <!--
+    <div id="chart_div"></div>
+    <div id="table_div"></div> -->
+    <div id="map_canvas_div"></div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type="text/javascript" src="https://rawgithub.com/NickQiZhu/dc.js/master/web/js/crossfilter.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    $.getJSON(
+            'http://138.197.204.34:9090/cases?columns=city,county,industry,backwages&state=CA&limit=0', function(results) {
+        var data = results.data;
+
+
+        // Use the crossfilter force.
+        var cf = crossfilter(data);
+
+        // Create our dimension by political party.
+        var byCounty = cf.dimension(function(p) { return p.county; });
+
+        var groupByCounty = byCounty.group().reduceSum(function(fact) { return fact.backwages; });
+        groupByCounty.top(Infinity).forEach(function(p, i) {
+          console.log(p.key + ": " + p.value);
+        });
+
+    });
+</script>
+</head>
+
+<body>
+        <center><h2>Crossfilter test</h2></center>
+        Check the Console Log for the results of the filter. It takes the data for California and groups by county. 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-all-all.js"></script>
+
+    <script type="text/javascript">
+    
+
+Highcharts.setOptions({
+  lang: {
+    thousandsSep: ','
+  }
+});
+
+
+
+ $.getJSON(
+    'http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null', function(results) {
+
+        var data_original = results.data;
+        var data = data_original.map(function(d,i) {
+          var fips_code = "";
+
+          if (d.county_fips_code == null || d.state == null) {
+
+            return;
+          }
+          switch(d.county_fips_code.toString().length) {
+            case 0:
+                return;
+            case 1:
+                fips_code = "00";
+                break;
+            case 2:
+                fips_code = "0";
+                break;
+          }
+          fips_code = fips_code + d.county_fips_code.toString();
+          return {
+            code: "us-" + d.state.toLowerCase() + "-" + fips_code, //"us-pr-141",
+            name: d.county,
+            value: d.backwages
+          };
+        });
+        /**
+         * Data parsed from http://www.bls.gov/lau/#tables
+         *
+         * 1. Go to http://www.bls.gov/lau/laucntycur14.txt (or similar, updated datasets)
+         * 2. In the Chrome Developer tools console, run this code:
+         * copy(JSON.stringify(document.body.innerHTML.split('\n').filter(function (s) { return s.indexOf('<PUT DATE HERE IN FORMAT e.g. Feb-14>') !== -1; }).map(function (row) { row = row.split('|'); return { code: 'us-' + row[3].trim().slice(-2).toLowerCase() + '-' + row[2].trim(), name: row[3].trim(), value: parseFloat(row[8]) }; })))
+         * 3. The data is now on your clipboard, paste it below
+         */
+
+        var countiesMap = Highcharts.geojson(Highcharts.maps['countries/us/us-all-all']),
+            lines = Highcharts.geojson(Highcharts.maps['countries/us/us-all-all'], 'mapline'),
+            options;
+
+        // Add state acronym for tooltip
+        Highcharts.each(countiesMap, function (mapPoint) {
+            mapPoint.name = mapPoint.name + ', ' + mapPoint.properties['hc-key'].substr(3, 2);
+        });
+
+        options = {
+            chart: {
+                borderWidth: 0,
+                marginRight: 100 // for the legend
+            },
+
+            title: {
+                text: 'Wage Theft'
+            },
+
+            legend: {
+                title: {
+                    text: 'Backwages per county',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                    }
+                },
+                layout: 'vertical',
+                align: 'right',
+                floating: true,
+                valueDecimals: 0,
+                valuePrefix: '$',
+                valueSuffix: '',
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
+                symbolRadius: 0,
+                symbolHeight: 14,
+
+            },
+
+            mapNavigation: {
+                enabled: true
+            },
+
+            colorAxis: {
+                dataClasses: [{
+                    from: 0,
+                    to: 5000,
+                    color: "#FFD5D5"
+                }, {
+                    from: 5000,
+                    to: 100000,
+                    color: "#FF8080"
+                }, {
+                    from: 100000,
+                    to: 1000000,
+                    color: "#FF2A2A"
+                }, {
+                    from: 1000000,
+                    to: 3000000,
+                    color: "#FF0000"
+                }, {
+                    from: 3000000,
+                    to: 20000000,
+                    color: "#B90000"
+                }, {
+                    from: 20000000,
+                    color: "#800000"
+                }]
+            },
+
+            plotOptions: {
+                mapline: {
+                    showInLegend: false,
+                    enableMouseTracking: false
+                }
+            },
+
+            series: [{
+                mapData: countiesMap,
+                data: data,
+                joinBy: ['hc-key', 'code'],
+                name: 'Wages owed to workers',
+                tooltip: {
+                    valuePrefix: '$'
+                },
+                borderWidth: 0.5,
+                states: {
+                    hover: {
+                        color: '#bada55'
+                    }
+                }
+            }, {
+                type: 'mapline',
+                name: 'State borders',
+                data: [lines[0]],
+                color: 'white'
+            }, {
+                type: 'mapline',
+                name: 'Separator',
+                data: [lines[1]],
+                color: 'gray'
+            }]
+        };
+
+        // Instanciate the map
+        $('#container').highcharts('Map', options);
+    });
+
+
+
+
+
+
+
+
+    </script>
+  </head>
+
+  <body>
+    
+<center><h2>Highcharts - Highmap of Backwages by County</h2>
+API: <a href="http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null">http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&amp;where=county_fips_code%20is%20not%20null</a>
+</center>
+    <!--Div that will hold the pie chart-->
+<div id="container" style="height: 100vh; min-width: 310px; width: '100%'; margin: 0 auto; text-align:center; line-height: 520px">
+    Downloading map...
+</div>
+
+  </body>
+</html>
