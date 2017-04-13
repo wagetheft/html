@@ -70,6 +70,7 @@ p {
     font-size: 1em;
     line-height: 1.5em;
     padding: 10px 0;
+    word-wrap: break-word;
 }
 ul, ol {
     margin: 0;
