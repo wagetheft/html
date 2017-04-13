@@ -20,7 +20,7 @@ Highcharts.setOptions({
 
 
  $.getJSON(
-    'http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null', function(results) {
+    '/api/v1/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null', function(results) {
 
         var data_original = results.data;
         var data = data_original.map(function(d,i) {
@@ -176,7 +176,7 @@ Highcharts.setOptions({
   <body>
     
 <center><h2>Highcharts - Highmap of Backwages by County</h2>
-API: <a href="http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null">http://138.197.204.34:9090/cases?columns=county_fips_code,state,county,sum(backwages)&amp;where=county_fips_code%20is%20not%20null</a>
+API: <a href="/api/v1/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null">/api/v1/cases?columns=county_fips_code,state,county,sum(backwages)&amp;where=county_fips_code%20is%20not%20null</a>
 </center>
     <!--Div that will hold the pie chart-->
 <div id="container" style="height: 100vh; min-width: 310px; width: '100%'; margin: 0 auto; text-align:center; line-height: 520px">

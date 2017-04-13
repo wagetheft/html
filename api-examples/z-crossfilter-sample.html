@@ -7,7 +7,7 @@
 <script type="text/javascript">
 
     $.getJSON(
-            'http://138.197.204.34:9090/cases?columns=city,county,industry,backwages&state=CA&limit=0', function(results) {
+            '/api/v1/cases?columns=city,county,industry,backwages&state=CA&limit=0', function(results) {
         var data = results.data;
 
 

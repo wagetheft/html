@@ -13,7 +13,7 @@
       
     function drawChart() {
       var jsonData = $.ajax({
-          url: "http://138.197.204.34:9090/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc",
+          url: "/api/v1/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc",
           dataType: "json",
           async: false
           }).responseText;
@@ -47,7 +47,7 @@
 
   <body>
     <center><h2>Google GeoChart of BWs by State</h2>
-API: <a href="http://138.197.204.34:9090/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc">http://138.197.204.34:9090/cases?columns=state,sum(backwages)&amp;return_format=googledatatable&amp;where=state<>''&amp;order=backwages desc</a>
+API: <a href="/api/v1/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc">/api/v1/cases?columns=state,sum(backwages)&amp;return_format=googledatatable&amp;where=state<>''&amp;order=backwages desc</a>
     </center>
     <!--
     <div id="chart_div"></div>
