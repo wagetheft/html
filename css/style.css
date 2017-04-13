@@ -1,0 +1,462 @@
+/*RESET*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
+
+/***************************************************************************
+Setup CSS
+***************************************************************************/
+* {
+    box-sizing: border-box !important;
+}
+
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 320px;
+
+    font-family: 'Source Sans Pro', "Helvetica Neue", helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block !important;
+    margin: 0;
+}
+
+/***************************************************************************
+Typography
+***************************************************************************/
+h1, h2, h3, h4, h5, h6, p.slogan {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 3em;
+    padding-bottom: 20px;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1.25em;
+}
+
+#title {
+    font-size: 2em;
+    padding-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #820000;
+}
+a:hover {
+    color: #333;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding: 10px 0;
+}
+ul, ol {
+    margin: 0;
+    padding: 0 0 20px 20px;
+    line-height: 1.5em;
+    list-style: none;
+}
+ul li,
+ol li {
+    padding: 0 0 19px 0;
+}
+
+/***************************************************************************
+Wrapper
+***************************************************************************/
+#wrapper {
+    position: relative;
+    min-height: 100%;
+    margin: 0 auto -60px auto;
+    border-right: 1px solid #469;
+    border-left: 1px solid #469;
+    background-color: rgba(255,255,255, .75);
+}
+
+/*** HEADER ***/
+#header {
+    position: relative;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    background-color: rgba(255,255,255, .75);
+}
+
+/*** MAIN NAVIGATION ***/
+#menu-toggle {
+    display: none;
+}
+#menu-icon {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #333;
+}
+#menu-icon .icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #333;
+    border-bottom: 4px solid #333;
+}
+#menu-icon .bar {
+    display: block;
+    overflow: hidden;
+    height: 4px;
+    margin: 4px 0;
+    background-color: #333;
+    text-indent: -999em;
+}
+#main-nav {
+    position: absolute;
+    right: 0;
+    top: 40px;
+}
+#main-nav .main-nav-list {
+    margin: 0;
+    padding: 0;
+}
+#main-nav .main-nav-item {
+    display: inline-block;
+    width: 150px;
+    padding: 0;
+    line-height: 20px;
+    text-align: center;
+}
+#main-nav .main-nav-item.active a {
+    font-weight: 700;
+    color: #333;
+}
+
+#menu-toggle:checked + #menu-icon {
+    background-color: #333;
+}
+#menu-toggle:checked + #menu-icon .icon {
+    border-top: 4px solid #eee;
+    border-bottom: 4px solid #eee;
+}
+#menu-toggle:checked + #menu-icon .bar {
+    background-color: #eee;
+}
+
+/***************************************************************************
+CONTENT
+***************************************************************************/
+#content {
+    min-height: 499px;
+    padding: 19px;
+}
+
+/***************************************************************************
+FOOTER
+***************************************************************************/
+#wrapper:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer, #wrapper:after  {
+    height: 60px;
+}
+#footer {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    clear: both;
+    color: #707070;
+    text-align: right;
+}
+#footer p {
+    padding: 0;
+    line-height: 20px;
+}
+
+/***************************************************************************
+MISCELLANEOUS
+***************************************************************************/
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.project #wrapper #content #project-content .main-image {
+    width: 261px;
+}
+
+.square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.one-third {
+    width: 33.33%;
+}
+.two-fifths {
+    width: 40%;
+}
+.one-half {
+    width: 50%;
+}
+.three-fifths {
+    width: 60%;
+}
+.two-thirds {
+    width: 66.66%;
+}
+
+.margin-right-one-third {
+    margin-right: 33.33%;
+}
+.margin-left-one-third {
+    margin-left: 33.33%;
+}
+
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.video-sixteen-by-nine {
+    height: 360px;
+}
+.video-four-by-three {
+    height: 400px;
+}
+
+.good {
+    color: #496;
+}
+
+/***************************************************************************
+MEDIA QUERIES
+***************************************************************************/
+
+/*** For Mobile and Small Tablets ***/
+@media only screen and (max-width: 819px) {
+    #header #title {
+        font-size: 2em;
+    }
+    #menu-icon:active,
+    #menu-icon:focus {
+        background-color: #333;
+    }
+    #main-nav {
+        position: relative;
+        top: 0;
+        width: 100%;
+    }
+    #main-nav .main-nav-list {
+        position: relative;
+        display: none;
+        width: 100%;
+        margin: 0;
+        padding: 20px 5px 0 5px;
+    }
+    #main-nav .main-nav-item {
+        width: 33.33%;
+        padding: 10px 5px;
+    }
+    #menu-toggle:checked ~ .main-nav-list {
+        display: block;
+    }
+
+    .not-mobile {
+        display: none !important;
+    }
+
+    .one-third {
+        width: 50%;
+    }
+    .two-fifths {
+        width: 50%;
+    }
+    .one-half {
+        width: 50%;
+    }
+    .three-fifths {
+        width: 100%;
+    }
+    .two-thirds {
+        width: 100%;
+    }
+
+    .margin-right-one-third {
+        margin-right: 0;
+    }
+    .margin-left-one-third {
+        margin-left: 0;
+    }
+}
+
+/*** For Small Mobile Phones Only ***/
+@media only screen and (max-width: 479px) {
+    body {
+        margin: 0;
+    }
+    #main-nav .main-nav-list {
+        padding: 20px 0 0 0;
+    }
+
+
+    #wrapper {
+        border: none;
+        margin-bottom: -120px;
+    }
+    #wrapper, #footer {
+        width: 100%;
+    }
+    #footer, #wrapper:after  {
+        height: 120px;
+    }
+
+    #footer p {
+        clear: both;
+        text-align: center;
+    }
+
+    .one-third {
+        width: 100%;
+    }
+    .two-fifths {
+        width: 100%;
+    }
+    .one-half {
+        width: 100%;
+    }
+    .three-fifths {
+        width: 100%;
+    }
+    .two-thirds {
+        width: 100%;
+    }
+
+    .margin-right-one-third {
+        margin-right: 0;
+    }
+    .margin-left-one-third {
+        margin-left: 0;
+    }
+
+    .video-sixteen-by-nine {
+        height: 240px;
+    }
+    .video-four-by-three {
+        height: 300px;
+    }
+}
+
+/*** For Small & Large Mobile Phones Only ***/
+@media only screen and (max-width: 619px) {
+    .float-left {
+        margin-right: 0;
+    }
+    .float-right {
+        margin-left: 0;
+    }
+    .project #wrapper #content #project-content .main-image {
+        width: 100%;
+    }
+}
+
+/*** For NOT Mobile Phones ***/
+@media only screen and (min-width: 480px) {
+    #wrapper, #footer  {
+        width: 401px;
+    }
+}
+
+/*** For Small Tablets ***/
+@media only screen and (min-width: 620px) {
+    #wrapper, #footer  {
+        width: 601px;
+    }
+}
+
+/*** For Small Tablets (Portrait) ***/
+@media only screen and (min-width: 501px) and (max-width: 767px) and (orientation: portrait) {
+
+}
+
+/*** For Medium Tablets (Landscape) ***/
+@media only screen and (min-width: 820px) {
+    #wrapper, #footer  {
+        width: 801px;
+    }
+
+    .mobile {
+        display: none !important;
+    }
+}
+
+/*** For Large Tablets (Landscape) ***/
+@media only screen and (min-width: 1024px) {
+    #wrapper, #footer  {
+        width: 901px;
+    }
+}
+
+/*** For Large Tablets (Portrait) ***/
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+    
+}
+
+/*** For Laptop Screens ***/
+@media only screen and (min-width: 1280px) {
+    #wrapper, #footer  {
+        width: 1201px;
+    }
+}
+
+
+/*** For Medium Desktop Screens ***/
+@media only screen and (min-width: 1600px) {
+    #wrapper, #footer  {
+        width: 1501px;
+    }
+}
+
+/*** For Large Desktop Screens ***/
+@media only screen and (min-width: 1900px) {
+    #wrapper, #footer {
+        width: 1801px;
+    }
+}
