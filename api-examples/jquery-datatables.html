@@ -34,7 +34,7 @@ $(document).ready(function() {
 //				'deferRender': true,
         serverSide: true,
 				"ajax": {
-          url: "/api/v1/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages"
+          url: "http://stopwagetheft.stanford.edu/api/v1/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages"
 				
         },
         "columns": [
@@ -60,7 +60,7 @@ $(document).ready(function() {
 			} else {
 				company_name_search = "company_name=" + encodeURIComponent($("#text").val());
 			}
-      table.ajax.url( "/api/v1/cases?" + where + "columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages&" +company_name_search).load();
+      table.ajax.url( "http://stopwagetheft.stanford.edu/api/v1/cases?" + where + "columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages&" +company_name_search).load();
     });
     
     $('#formSelectState').on('change', '', function (e) {
@@ -76,7 +76,7 @@ $(document).ready(function() {
 				company_name_search = "company_name=" + encodeURIComponent($("#text").val());
 			}
 			
-			table.ajax.url( "/api/v1/cases?" + where + "columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages&" + company_name_search).load();
+			table.ajax.url( "http://stopwagetheft.stanford.edu/api/v1/cases?" + where + "columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages&" + company_name_search).load();
 
 		});
     
@@ -90,7 +90,7 @@ $(document).ready(function() {
   <body>
   	<center>
 <h2>jQuery DataTables</h2>
-<a href="/api/v1/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages">http://138.197.204.34:9090/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages</a><br><br>
+<a href="http://stopwagetheft.stanford.edu/api/v1/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages">http://138.197.204.34:9090/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages</a><br><br>
 </center>
 <form action="">
 <!-- Text -->

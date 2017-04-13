@@ -19,7 +19,7 @@
 
 
         $.getJSON(
-            '/api/v1/cases?columns=state,sum(backwages)&where=state%20is%20not%20null', function(results) {
+            'http://stopwagetheft.stanford.edu/api/v1/cases?columns=state,sum(backwages)&where=state%20is%20not%20null', function(results) {
 
                 var data_original = results.data;
                 var data = data_original.map(function(d,i) {
@@ -105,7 +105,7 @@
 
 <body>
     <center><h2>Highcharts - Highmap of backwages by states</h2>
-        API: <a href="/api/v1/cases?columns=state,sum(backwages)&where=state%20is%20not%20null">/api/v1/cases?columns=state,sum(backwages)&amp;where=state%20is%20not%20null</a>
+        API: <a href="http://stopwagetheft.stanford.edu/api/v1/cases?columns=state,sum(backwages)&where=state%20is%20not%20null">http://stopwagetheft.stanford.edu/api/v1/cases?columns=state,sum(backwages)&amp;where=state%20is%20not%20null</a>
     </center>
     <!--Div that will hold the pie chart-->
     <div id="container" style="height: 100vh; min-width: 310px; width: '100%'; margin: 0 auto; text-align:center; line-height: 520px">

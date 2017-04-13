@@ -13,7 +13,7 @@
       
     function drawChart() {
       var jsonData = $.ajax({
-          url: "/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=googledatatable",
+          url: "http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=googledatatable",
           dataType: "json",
           async: false
           }).responseText;
@@ -36,7 +36,7 @@
 
   <body>
     <center><h2>Google PieChart and DataTable of minimum wage violations by industry for CA</h2>
-      API: <a href="/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=html">/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&amp;order=minimum_wage_backwages%20desc&amp;where=state=%27CA%27&amp;return_format=html</a>
+      API: <a href="http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=html">http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&amp;order=minimum_wage_backwages%20desc&amp;where=state=%27CA%27&amp;return_format=html</a>
     </center>
     <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
