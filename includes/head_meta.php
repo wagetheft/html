@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no, maximum-scale=1.0">
 <meta name="description" content="Website explaining the use of the Stop Wage Theft API">
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code_Pro:600" rel="stylesheet">
 
 <style>
     body {

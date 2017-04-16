@@ -43,6 +43,7 @@ h1 {
 }
 h2 {
     font-size: 2em;
+    padding: 25px 0 5px 0;
 }
 h3 {
     font-size: 1.5em;
@@ -64,6 +65,17 @@ a:hover {
     color: #333;
     cursor: pointer;
 }
+a.code {
+    display: inline-block;
+    max-width: 100%;
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
 
 p {
     margin: 0;
@@ -71,6 +83,12 @@ p {
     line-height: 1.5em;
     padding: 10px 0;
     word-wrap: break-word;
+}
+span.code {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    padding: 2px 5px;
+    background-color: #eee;
 }
 ul, ol {
     margin: 0;
@@ -81,6 +99,20 @@ ul, ol {
 ul li,
 ol li {
     padding: 0 0 19px 0;
+}
+
+table {
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 5px 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+table th {
+    background-color: #ddd;
 }
 
 /***************************************************************************
@@ -174,6 +206,10 @@ CONTENT
     padding: 19px;
 }
 
+.section {
+    padding-left: 15px;
+}
+
 /***************************************************************************
 FOOTER
 ***************************************************************************/
@@ -192,6 +228,7 @@ FOOTER
     clear: both;
     color: #707070;
     text-align: right;
+    border-top: 1px solid #333;
 }
 #footer p {
     padding: 0;
