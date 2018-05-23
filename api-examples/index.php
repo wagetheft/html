@@ -77,23 +77,23 @@
                         <table>
                             <tbody>
                                 <tr><th>Default Columns:</th><th>Additional Columns:</th></tr>
-                                <tr><td>case_id</td><td>county</td></tr>
-                                <tr><td>trade_name</td><td>state_fips_code</td></tr>
-                                <tr><td>legal_name</td><td>county_fips_code</td></tr>
-                                <tr><td>street_address</td><td>combined_state_county_fips</td></tr>
-                                <tr><td>city</td><td>full_naics_code</td></tr>
-                                <tr><td>state</td><td>full_naics_description</td></tr>
-                                <tr><td>zip</td><td>naics2</td></tr>
-                                <tr><td>latitude</td><td>naics2_description</td></tr>
-                                <tr><td>longitude</td><td>naics3</td></tr>
-                                <tr><td>industry</td><td>naics3_description</td></tr>
-                                <tr><td>backwages</td><td>naics4</td></tr>
-                                <tr><td>employees_owed_backwages</td><td>naics4_description</td></tr>
-                                <tr><td>civil_money_penalties</td><td>minimum_wage_and_overtime_backwages</td></tr>
-                                <tr><td>findings_start_date</td><td>employees_owed_minimum_wage_and_overtime_backwages</td></tr>
-                                <tr><td>findings_end_date</td><td>minimum_wage_backwages</td></tr>
-                                <tr><td></td><td>overtime_backwages</td></tr>
-                                <tr><td></td><td>retaliation_backwages</td></tr>
+                                <tr><td><p>case_id</p></td><td><p>county</p></td></tr>
+                                <tr><td><p>trade_name</p></td><td><p>state_fips_code</p></td></tr>
+                                <tr><td><p>legal_name</p></td><td><p>county_fips_code</p></td></tr>
+                                <tr><td><p>street_address</p></td><td><p>combined_state_county_fips</p></td></tr>
+                                <tr><td><p>city</p></td><td><p>full_naics_code</p></td></tr>
+                                <tr><td><p>state</p></td><td><p>full_naics_description</p></td></tr>
+                                <tr><td><p>zip</p></td><td><p>naics2</p></td></tr>
+                                <tr><td><p>latitude</p></td><td><p>naics2_description</p></td></tr>
+                                <tr><td><p>longitude</p></td><td><p>naics3</p></td></tr>
+                                <tr><td><p>industry</p></td><td><p>naics3_description</p></td></tr>
+                                <tr><td><p>backwages</p></td><td><p>naics4</p></td></tr>
+                                <tr><td><p>employees_owed_backwages</p></td><td><p>naics4_description</p></td></tr>
+                                <tr><td><p>civil_money_penalties</p></td><td><p>minimum_wage_and_overtime_backwages</p></td></tr>
+                                <tr><td><p>findings_start_date</p></td><td><p>employees_owed_minimum_wage_and_overtime_backwages</p></td></tr>
+                                <tr><td><p>findings_end_date</p></td><td><p>minimum_wage_backwages</p></td></tr>
+                                <tr><td><p></p></td><td><p>overtime_backwages</p></td></tr>
+                                <tr><td><p></p></td><td><p>retaliation_backwages</p></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -103,6 +103,38 @@
                         <p><a class="code" href="http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=googledatatable">http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&amp;order=minimum_wage_backwages%20desc&amp;where=state=%27CA%27&amp;return_format=googledatatable</a></p><p>Here the API call adds up all the minimum wage backwages by industry, orders the results in descending order by the backwages, limits the results only to California, and returns the results in the "googledatatable" format which can be immediately read by Google Maps and Charts API. After clicking on the link try changing return_format=googledatatable to return_format=html for easier reading in a browser.</p>
                     </div>
 
+                    <h2>Visualization examples using the API</h2>
+                    <div class="section">
+                        <table>
+                            <tr>
+                                <th>Visualization</th><th>Api call used</th>
+                            </tr>
+                            <tr>
+                                <td><a href="google-chart.html"><h3>Google Pie Chart</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=industry,sum(minimum_wage_backwages)&order=minimum_wage_backwages%20desc&where=state=%27CA%27&return_format=html</p></td>
+                            </tr>
+                            <tr>
+                                <td><a href="google-map-states.html"><h3>Google Geo Chart</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=state,sum(backwages)&return_format=googledatatable&where=state<>''&order=backwages desc</p></td>
+                            </tr>
+                            <tr>
+                                <td><a href="highmaps-counties.html"><h3>High Maps Counties</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=county_fips_code,state,county,sum(backwages)&where=county_fips_code%20is%20not%20null</p></td>
+                            </tr>
+                            <tr>
+                                <td><a href="highmaps-states.html"><h3>High Maps States</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=state,sum(backwages)&where=state%20is%20not%20null</p></td>
+                            </tr>
+                            <tr>
+                                <td><a href="jquery-datatables.html"><h3>jQuery Data Tables</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=case_id,legal_name,trade_name,employees_owed_backwages,backwages</p></td>
+                            </tr>
+                            <tr>
+                                <td><a href="z-crossfilter-sample.html"><h3>Crossfilter Test</h3></a></td>
+                                <td><p>http://stopwagetheft.stanford.edu/api/v1/cases?columns=city,county,industry,backwages&state=CA&limit=0</p></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </section>
         </div>
