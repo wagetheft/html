@@ -2,6 +2,8 @@
   $current_page = $_SERVER["REQUEST_URI"];
 
   $URLs = array(
+    "About Us" => "/about-us/",
+    "Get Involved" => "/get-involved/",
     "API Examples" => "/api-examples/",
   );
 ?>
