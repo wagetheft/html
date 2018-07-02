@@ -94,13 +94,13 @@ span.code {
 }
 ul, ol {
     margin: 0;
-    padding: 0 0 20px 20px;
+    padding: 10px 0 10px 20px;
     line-height: 1.5em;
     list-style: none;
 }
 ul li,
 ol li {
-    padding: 0 0 19px 0;
+    padding: 10px 0 10px 0;
 }
 
 table {
@@ -215,6 +215,18 @@ CONTENT
 
 .section {
     padding-left: 15px;
+}
+
+#content p {
+    
+}
+#content ul {
+    list-style: disc;
+}
+#content ul ul {
+    list-style: circle;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /***************************************************************************
