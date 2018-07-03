@@ -360,10 +360,10 @@ MEDIA QUERIES
 /*** For Mobile up to Medium Tablets (Landscape) ***/
 @media only screen and (max-width: 1024px) {
     .one {
-        width: 25%;
+        width: 20%;
     }
     .two {
-        width: 33.33%;
+        width: 30%;
     }
     .three {
         width: 40%;
@@ -372,7 +372,7 @@ MEDIA QUERIES
         width: 50%;
     }
     .five {
-        width: 66.66%;
+        width: 60%;
     }
     .six {
         width: 100%;
