@@ -3,7 +3,7 @@
 
   $URLs = array(
     "About" => "/about/",
-    "Get Involved" => "/get-involved/",
+    "Methodology" => "/methodology/",
     "API Examples" => "/api-examples/",
   );
 ?>
