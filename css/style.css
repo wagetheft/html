@@ -351,22 +351,22 @@ MEDIA QUERIES
 /*** For Mobile up to Medium Tablets (Landscape) ***/
 @media only screen and (max-width: 1024px) {
     .one {
-        width: 10%;
+        width: 25%;
     }
     .two {
-        width: 20%;
+        width: 33.33%;
     }
     .three {
-        width: 30%;
-    }
-    .four {
         width: 40%;
     }
-    .five {
+    .four {
         width: 50%;
     }
+    .five {
+        width: 66.66%;
+    }
     .six {
-        width: 60%;
+        width: 100%;
     }
     .seven {
         width: 100%;
@@ -407,10 +407,10 @@ MEDIA QUERIES
     }
 
     .one {
-        width: 25%;
+        width: 33.33%;
     }
     .two {
-        width: 33.33%;
+        width: 40%;
     }
     .three {
         width: 50%;
@@ -419,7 +419,7 @@ MEDIA QUERIES
         width: 50%;
     }
     .five {
-        width: 50%;
+        width: 100%;
     }
     .six {
         width: 100%;
