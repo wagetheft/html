@@ -127,7 +127,7 @@ Wrapper
 #wrapper {
     position: relative;
     min-height: 100%;
-    margin: 0 auto -60px auto;
+    margin: 0 auto -100px auto;
     border-right: 1px solid #469;
     border-left: 1px solid #469;
     background-color: rgba(255,255,255, .75);
@@ -249,7 +249,7 @@ FOOTER
   clear: both;
 }
 #footer, #wrapper:after  {
-    height: 60px;
+    height: 100px;
 }
 #footer {
     position: relative;
@@ -257,12 +257,18 @@ FOOTER
     padding: 20px;
     clear: both;
     color: #707070;
-    text-align: right;
     border-top: 1px solid #333;
 }
 #footer p {
     padding: 0;
     line-height: 20px;
+}
+#footer .top a {
+    margin-left: 20px;
+}
+#footer .copyright {
+    text-align: right;
+    padding-top: 20px;
 }
 
 /***************************************************************************
