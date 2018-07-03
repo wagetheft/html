@@ -14,7 +14,7 @@
                     <h1>About</h1>
 
                     <p>Historically the theft of wages has been a business and policy problem and not an engineering problem. That is no longer the case. A group of volunteers have accepted the challenge to create a predictive model for where wage theft is currently undetected and then visualize that data.</p>
-                    <blockquote class="three float-right">Our goal is to find gaps in the dataset where violators are flying under the radar.</blockquote>
+                    <blockquote class="three right">Our goal is to find gaps in the dataset where violators are flying under the radar.</blockquote>
                     <p>The Stanford University Center for Integrated Facility Engineering hosts this project, which is appropriate since the construction industry is one of the leading sources of wage theft.</p>
                     <p>In the ongoing fight against wage theft, Stanford CIFE has joined with the Santa Clara County Wage Theft Coalition. The coalition is a collection of community organizations in Santa Clara County (aka Silicon Valley) with a mission to stop wage theft. Currently wage theft is slowed by a mix of government and non-profit organizations such as the Department of Labor Wage and Hour Division, which enforces the Fair Labor Standards Act (FLSA) for minimum wage and overtime pay standards.</p>
                     <p>Our goal is to stop the predatory exploitation of vulnerable populations. These include: paying less than minimum wage, failing to pay overtime, forcing work off the clock, issuing paychecks that bounce, stealing tips, denying required meal and rest breaks, misclassifying work (i.e., as independent contract work), and not paying at all.</p>

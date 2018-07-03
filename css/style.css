@@ -231,10 +231,19 @@ CONTENT
 
 #content blockquote {
     display: block;
-    padding: 0 0 0 20px;
-    margin: 0 0 10px 10px;
+    padding: 0;
+    margin: 10px 0;
     font-size: 2em;
     line-height: 1.25em;
+}
+#content blockquote.left {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid black;
+}
+#content blockquote.right {
+    padding-left: 20px;
+    margin-left: 20px;
     border-left: 1px solid black;
 }
 
@@ -322,10 +331,10 @@ MISCELLANEOUS
     margin-left: 33.33%;
 }
 
-.float-right {
+.right {
     float: right;
 }
-.float-left {
+.left {
     float: left;
 }
 
@@ -438,10 +447,10 @@ MEDIA QUERIES
 
 /*** For Small & Large Mobile Phones Only ***/
 @media only screen and (max-width: 619px) {
-    .float-left {
+    .left {
         margin-right: 0;
     }
-    .float-right {
+    .right {
         margin-left: 0;
     }
     .project #wrapper #content #project-content .main-image {
