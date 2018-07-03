@@ -231,10 +231,8 @@ CONTENT
 
 #content blockquote {
     display: block;
-    width: 240px;
     padding: 0 0 0 20px;
     margin: 0 0 10px 10px;
-    float: right;
     font-size: 2em;
     line-height: 1.25em;
     border-left: 1px solid black;
@@ -295,20 +293,26 @@ MISCELLANEOUS
     padding-bottom: 100%;
 }
 
-.one-third {
-    width: 33.33%;
+.one {
+    width: 100px;
 }
-.two-fifths {
-    width: 40%;
+.two {
+    width: 200px;
 }
-.one-half {
-    width: 50%;
+.three {
+    width: 300px;
 }
-.three-fifths {
-    width: 60%;
+.four {
+    width: 400px;
 }
-.two-thirds {
-    width: 66.66%;
+.five {
+    width: 500px;
+}
+.six {
+    width: 600px;
+}
+.seven {
+    width: 700px;
 }
 
 .margin-right-one-third {
@@ -344,6 +348,31 @@ MISCELLANEOUS
 MEDIA QUERIES
 ***************************************************************************/
 
+/*** For Mobile up to Medium Tablets (Landscape) ***/
+@media only screen and (max-width: 1024px) {
+    .one {
+        width: 10%;
+    }
+    .two {
+        width: 20%;
+    }
+    .three {
+        width: 30%;
+    }
+    .four {
+        width: 40%;
+    }
+    .five {
+        width: 50%;
+    }
+    .six {
+        width: 60%;
+    }
+    .seven {
+        width: 100%;
+    }
+}
+
 /*** For Mobile and Small Tablets ***/
 @media only screen and (max-width: 819px) {
     #header #title {
@@ -377,19 +406,25 @@ MEDIA QUERIES
         display: none !important;
     }
 
-    .one-third {
+    .one {
+        width: 25%;
+    }
+    .two {
+        width: 33.33%;
+    }
+    .three {
         width: 50%;
     }
-    .two-fifths {
+    .four {
         width: 50%;
     }
-    .one-half {
+    .five {
         width: 50%;
     }
-    .three-fifths {
+    .six {
         width: 100%;
     }
-    .two-thirds {
+    .seven {
         width: 100%;
     }
 
@@ -398,6 +433,55 @@ MEDIA QUERIES
     }
     .margin-left-one-third {
         margin-left: 0;
+    }
+}
+
+/*** For Small & Large Mobile Phones Only ***/
+@media only screen and (max-width: 619px) {
+    .float-left {
+        margin-right: 0;
+    }
+    .float-right {
+        margin-left: 0;
+    }
+    .project #wrapper #content #project-content .main-image {
+        width: 100%;
+    }
+
+    .one {
+        width: 50%;
+    }
+    .two {
+        width: 100%;
+    }
+    .three {
+        width: 100%;
+    }
+    .four {
+        width: 100%;
+    }
+    .five {
+        width: 100%;
+    }
+    .six {
+        width: 100%;
+    }
+    .seven {
+        width: 100%;
+    }
+
+    .margin-right-one-third {
+        margin-right: 0;
+    }
+    .margin-left-one-third {
+        margin-left: 0;
+    }
+
+    .video-sixteen-by-nine {
+        height: 240px;
+    }
+    .video-four-by-three {
+        height: 300px;
     }
 }
 
@@ -427,46 +511,25 @@ MEDIA QUERIES
         text-align: center;
     }
 
-    .one-third {
+    .one {
         width: 100%;
     }
-    .two-fifths {
+    .two {
         width: 100%;
     }
-    .one-half {
+    .three {
         width: 100%;
     }
-    .three-fifths {
+    .four {
         width: 100%;
     }
-    .two-thirds {
+    .five {
         width: 100%;
     }
-
-    .margin-right-one-third {
-        margin-right: 0;
+    .six {
+        width: 100%;
     }
-    .margin-left-one-third {
-        margin-left: 0;
-    }
-
-    .video-sixteen-by-nine {
-        height: 240px;
-    }
-    .video-four-by-three {
-        height: 300px;
-    }
-}
-
-/*** For Small & Large Mobile Phones Only ***/
-@media only screen and (max-width: 619px) {
-    .float-left {
-        margin-right: 0;
-    }
-    .float-right {
-        margin-left: 0;
-    }
-    .project #wrapper #content #project-content .main-image {
+    .seven {
         width: 100%;
     }
 }
@@ -485,11 +548,6 @@ MEDIA QUERIES
     }
 }
 
-/*** For Small Tablets (Portrait) ***/
-@media only screen and (min-width: 501px) and (max-width: 767px) and (orientation: portrait) {
-
-}
-
 /*** For Medium Tablets (Landscape) ***/
 @media only screen and (min-width: 820px) {
     #wrapper, #footer  {
@@ -506,11 +564,6 @@ MEDIA QUERIES
     #wrapper, #footer  {
         width: 901px;
     }
-}
-
-/*** For Large Tablets (Portrait) ***/
-@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
-    
 }
 
 /*** For Laptop Screens ***/
